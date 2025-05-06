@@ -1,0 +1,4 @@
+*.exe binary
+# 他のバイナリファイル（.dll, .png など）も同様に指定できます
+# *.dll binary
+# *.png binary

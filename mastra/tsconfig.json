@@ -1,0 +1,17 @@
+// C:\Users\sinzy\mastra-mcp-01\mastra\tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext", // または "Bundler" (Mastra手動セットアップ例より)
+    "outDir": "./dist",
+    "rootDir": "./src/mastra", // ★★★ 変更 ★★★
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/mastra/**/*"], // ★★★ 変更 ★★★ (runAgent.ts を削除)
+  "exclude": ["node_modules"]
+}

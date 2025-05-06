@@ -1,0 +1,5 @@
+--slow-mo 1000
+--extract loop-links
+--no-stealth True
+--extract-target link_text
+--link-selector .a-link-normal

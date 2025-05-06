@@ -1,0 +1,6 @@
+# C:\Users\sinzy\mastra-mcp-go-anywhere\mastra\.gitignore
+node_modules/*
+dist/
+.mastra/
+.env
+*.log
