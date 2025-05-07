@@ -1,0 +1,19 @@
+# 例: ~/.cloudflared/config.yml または C:\Users\YourUser\.cloudflared\config.yml
+
+# ステップ2で作成したトンネルのID (UUID) を指定
+# tunnel: <トンネルID>  # この行は credentials-file を使う場合は不要なことが多い
+# JSON資格情報ファイルのパス (ステップ2で表示されたパス)
+# 通常は ~/.cloudflared/<トンネルID>.json や C:\Users\YourUser\.cloudflared\<トンネルID>.json
+tunnel: 645ec1e8-9c1e-436d-a50e-7aaaa45f07c8 # ★ トンネルIDを明示的に指定
+credentials-file: C:\Users\sinzy\.cloudflared\645ec1e8-9c1e-436d-a50e-7aaaa45f07c8.json # この行は必須
+
+# トンネル経由でアクセス可能にするサービスの設定
+ingress:
+  # 最初のルール: MCPサーバーへのルーティング
+  - hostname: mcp-server.veryglad.win  # 例: mcp-server.yourdomain.com または <トンネル名>-<アカウント名>.workers.dev
+    service: http://127.0.0.1:3001        # ローカルのMCPサーバーのURL
+  # 他のサービスも公開したい場合はここに追加できます
+  # - hostname: anotherservice.yourdomain.com
+  #   service: http://localhost:8080
+  # 最後のルール: 上記のいずれにも一致しないアクセスは404エラー
+  - service: http_status:404
