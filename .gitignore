@@ -3,12 +3,14 @@ node_modules
 dist
 .env
 *.log
-crs-mcp-client/node_modules
-crs-mcp-server/node_modules
 mastra/node_modules
-crs-mcp-client/dist
-crs-mcp-server/dist
 mastra/dist
+crs-mcp-client/node_modules
+crs-mcp-client/dist
+crs-mcp-scraper-server/node_modules
+crs-mcp-scraper-server/dist
+crs-mcp-law-server/node_modules
+crs-mcp-law-server/dist
 
 
 
