@@ -1,0 +1,5 @@
+# C:\Users\sinzy\mastra-mcp-01\mastra\.gitignore
+node_modules
+dist
+.env
+*.log

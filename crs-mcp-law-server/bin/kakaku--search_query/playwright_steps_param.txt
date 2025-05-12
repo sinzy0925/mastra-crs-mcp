@@ -1,0 +1,5 @@
+--slow-mo 1000
+--extract loop-links
+--no-stealth True
+--extract-target link_text
+--link-selector #ct087 > div.contMain > div.contMainIn > ol > li:nth-child(1) > div > div.itemIn2 > p.itemName.is-ellipsis > a

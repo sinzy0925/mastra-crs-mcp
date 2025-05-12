@@ -1,7 +1,0 @@
-# 設定の例
-# --target-index 0 #1件目だけを対象にしたい場合は0　2件目なら1　全部なら-1または、何も書かない
---no-stealth True # True=非ステルスモード False=ステルスモード（googleのロボットチェック回避）
---headless False #False Chrome見える #True Chrome見えない 
---slow-mo 1000 #動きを遅くする（ミリ秒）
---extract body #loop-links  #リンク先にアクセスする # body #その画面のbodyを取得 
---extract-target link_text #リンク先にアクセスして取得する要素　link_text body title

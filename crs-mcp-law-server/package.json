@@ -1,0 +1,32 @@
+{
+"name": "crs-mcp-law-server",
+  "version": "1.0.0",
+  "description": "MCP server for chrome-law-analyzer.exe",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsc && node dist/server.js"
+  },
+  "keywords": [
+    "mcp",
+    "chrome",
+    "scraper",
+    "mastra"
+  ],
+  "author": "Taro.AI",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.0",
+    "express": "^5.1.0",
+    "zod": "^3.24.3"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

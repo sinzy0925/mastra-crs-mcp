@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    //定義の追加
+    /* Language and Environment */
+    "target": "ES2022", // より新しいECMAScriptバージョンを指定
+    "module": "NodeNext", // Node.jsのES Modulesを使うための設定
+    "moduleResolution": "NodeNext", // 上記とセットで必要
+    "outDir": "./dist", // コンパイル後のJSファイルの出力先
+    "rootDir": "./src", // TypeScriptソースファイルの場所
+    "esModuleInterop": true, // import/exportの互換性向上
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字を区別
+
+    /* Type Checking */
+    "strict": true, // 厳格な型チェックを有効化
+    "skipLibCheck": true // 依存ライブラリの型チェックをスキップ (ビルド高速化)
+    
+  }
+}

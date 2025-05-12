@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "dev": "mastra dev",
+    "dev": "tsc && mastra dev",
     "test:agent": "npm run build && node dist/runAgent.js"
   },
   "keywords": [

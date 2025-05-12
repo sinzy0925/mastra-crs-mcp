@@ -1,0 +1,9 @@
+# このアプリで以下の設定で実行した結果を出力フィアルに提示しますので、理解してください。
+
+# 設定ファイルplaywright_steps_param.txtの内容が以下です。
+# 設定の例
+--headless False #False Chrome見える #True Chrome見えない 
+--no-stealth False # True=非ステルスモード False=ステルスモード（googleのロボットチェック回避）
+--extract body #loop-links  #リンク先にアクセスする # body #その画面のbodyを取得 
+--extract-target body #リンク先にアクセスして取得する要素　link_text body title
+--slow-mo 1000

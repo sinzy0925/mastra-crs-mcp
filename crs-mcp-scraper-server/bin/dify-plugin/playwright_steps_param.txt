@@ -1,0 +1,9 @@
+# playwright_steps_param.txt
+# 設定の例
+# --target-index 0 #1件目だけを対象にしたい場合は0　2件目なら1　全部なら-1または、何も書かない
+--headless False #False Chrome見える #True Chrome見えない 
+--no-stealth False # True=非ステルスモード False=ステルスモード（googleのロボットチェック回避）
+--extract loop-links  #loop-links  #リンク先にアクセスする # body #その画面のbodyを取得 
+--extract-target body #リンク先にアクセスして取得する要素　link_text body title
+#--slow-mo 1000
+--link-selector a
