@@ -159,17 +159,17 @@ Mastra Agent は Web UI を提供します。`02_start_servers_and_agent.bat` �
 2.  Mastra Agent の Web UI が表示されます。ここで、LLM に指示を入力できます。
 3.  **LLM に話しかけるように、日本語で指示を入力してください。** Agent はあなたの指示を理解し、必要に応じて MCP サーバー上のツール（内部的に `.exe` ファイルを実行）を呼び出して応答します。
 
-    * **3-1** エージェントWeb Scraper Agentを選択した場合は以下のように指示します。
-        -  指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
-        -   例：「google で 日本の首相 を検索して」 (内部的に `setdir='google--search_query'` を使用)
-        -   例：「pmda で パキシル の情報を詳しく教えて」 (内部的に `setdir='pmda--search_query'` を使用)
-        -   例：「メルカリでスイッチについて検索して」 (内部的に `setdir='merucari--search_query'` を使用)
-        -   `setdir` の名前は、`crs-mcp-scraper-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
+* **3-1** エージェントWeb Scraper Agentを選択した場合は以下のように指示します。
+    - 指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
+    - 例：「google で 日本の首相 を検索して」 (内部的に `setdir='google--search_query'` を使用)
+    - 例：「pmda で パキシル の情報を詳しく教えて」 (内部的に`setdir='pmda--search_query'` を使用)
+    - 例：「メルカリでスイッチについて検索して」 (内部的に `setdir='merucari--search_query'` を使用)
+    - `setdir` の名前は、`crs-mcp-scraper-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
 
-    3-2 *   エージェントLaw Analyzer Agentを選択した場合は以下のように指示します。    
-        *   指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
-        *   例：「建築基準法で階段について調べて、関連条文を全部教えて」 (内部的に `setdir='kenchiku-kijunhou'` を使用)
-        *   `setdir` の名前は、`crs-mcp-law-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
+* **3-2** エージェントLaw Analyzer Agentを選択した場合は以下のように指示します。    
+    - 指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
+    - 例：「建築基準法で階段について調べて、関連条文を全部教えて」 (内部的に `setdir='kenchiku-kijunhou'` を使用)
+    - `setdir` の名前は、`crs-mcp-law-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
 
 4.  対話を終了したい場合は、MCP サーバーと Mastra Agent のコンソールウィンドウ（黒い窓３個）を閉じてください。
 
