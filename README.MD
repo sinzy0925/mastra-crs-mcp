@@ -119,20 +119,25 @@ https://github.com/sinzy0925/mastra-crs-mcp から以下のいずれかの方法
 API キーの利用状況によっては、無料枠の上限に達した場合などに利用が制限される可能性があります。ご了承ください。（月間無料利用枠：100回を想定）
 
 
-STEP 4: Gemini APIキーの設定
-このステップは、Mastra Agent を通じて LLM (Google Gemini) と対話するために必須です。
+### **STEP 4: Gemini APIキーの設定**
+**このステップは、Mastra Agent を通じて LLM (Google Gemini) と対話するために必須です。**
+
 展開したフォルダのルートディレクトリにある 02_run_get_gemini_api_key.bat をダブルクリックして実行してください。このバッチファイルが、Google AI Studio の API キー取得ページを開き、ユーザーに入力してもらった API キーを mastra/.env ファイルに保存します。
+
 以下に、02_run_get_gemini_api_key.bat の詳細な手順を示します。
-エクスプローラーで、展開した mastra-crs-mcp フォルダを開きます。
-ルートディレクトリにある 02_run_get_gemini_api_key.bat をダブルクリックして起動します。
-黒いコンソールウィンドウが表示され、Gemini API キー設定プロセスに関するメッセージが表示されます。
-Google AI Studio の API キー取得ページがブラウザで自動的に起動します。 もしブラウザが開かない場合は、コンソールに表示される URL (https://aistudio.google.com/apikey) をコピーし、手動でブラウザで開いてください。
-ブラウザで、新しい API キーを作成するか、既存のキーを確認します。
-取得した API キーをコピーします。
-02_run_get_gemini_api_key.bat が起動しているコンソールウィンドウに戻ります。 プロンプトが表示されているので、コピーした API キーを貼り付け、Enter キーを押してください。 (入力内容は画面に表示されません)
-入力された API キーが mastra フォルダ内の .env ファイルに GOOGLE_GENERATIVE_AI_API_KEY=<入力したキー> という形式で保存されます。
-API キーが保存された旨のメッセージが表示されたら、設定完了です。コンソールウィンドウを閉じてください。
-Gemini APIキー認証の必要性について:
+
+1. エクスプローラーで、展開した mastra-crs-mcp フォルダを開きます。
+2. ルートディレクトリにある 02_run_get_gemini_api_key.bat をダブルクリックして起動します。
+3. 黒いコンソールウィンドウが表示され、Gemini API キー設定プロセスに関するメッセージが表示されます。
+4. **Google AI Studio の API キー取得ページがブラウザで自動的に起動します。** もしブラウザが開かない場合は、コンソールに表示される URL (https://aistudio.google.com/apikey) をコピーし、手動でブラウザで開いてください。
+5. ブラウザで、新しい API キーを作成するか、既存のキーを確認します。
+6. **取得した API キーをコピーします。**
+7. 02_run_get_gemini_api_key.bat **が起動しているコンソールウィンドウに戻ります。** プロンプトが表示されているので、**コピーした API キーを貼り付け、Enter キーを押してください。** (入力内容は画面に表示されません)
+8. 入力された API キーが mastra フォルダ内の .env ファイルに GOOGLE_GENERATIVE_AI_API_KEY=<入力したキー> という形式で保存されます。
+9. API キーが保存された旨のメッセージが表示されたら、設定完了です。コンソールウィンドウを閉じてください。
+
+**Gemini APIキー認証の必要性について:**
+
 Mastra Agent が Google Gemini モデルを利用して応答を生成するためには、有効な Gemini API キーが必要です。このキーは .env ファイルに保存され、Mastra Agent が起動時に読み込みます。このキーがない場合、Agent は LLM モデルにアクセスできず、応答できません。
 
 
