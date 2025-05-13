@@ -14,7 +14,7 @@ Mastra-CRS-MCP は、Model Context Protocol (MCP) を活用し、LLM (大規模�
 本プロジェクトは、以下の主要コンポーネントで構成されます。
 
 -   **Playwright 実行ファイル群 (`.exe`)**:
-    -   `01_run_get_api_key.exe`: **【必須】** 本アプリのブラウザ操作機能（.exeファイル）の利用に必要なAPIキーを取得・管理するための認証設定ツール。
+    -   `01_run_get_crs_api_key.exe`: **【必須】** 本アプリのブラウザ操作機能（.exeファイル）の利用に必要なAPIキーを取得・管理するための認証設定ツール。
     -   `chrome-recorder.exe`: 新しい Web 操作手順を記録・生成を支援するツール。
     -   `chrome-auto-scraper.exe`: 汎用的な Web スクレイピングタスクを実行するツール。
     -   `chrome-law-analyzer.exe`: e-Gov 法令 HTML から特定のキーワードを検索・解析するツール。
@@ -34,7 +34,8 @@ Mastra-CRS-MCP は、Model Context Protocol (MCP) を活用し、LLM (大規模�
 ```
 mastra-crs-mcp/
 ├── README.MD                 <-- このファイル (最初に読んでください)
-├── 01_run_get_api_key.exe    <-- ★最初に実行する認証ツール★
+├── 01_run_get_crs_api_key.exe    <-- ★最初に実行する認証ツール★
+├── 02_run_get_gemini_api_key.bat <-- ★GeminiのAPIキーを取得するバッチ★
 ├── 02_start_servers_and_agent.bat <-- ★次に実行するサーバー起動バッチ★
 ├── chrome-recorder.exe       <-- ★操作記録に使いたい場合に実行★
 ├── crs-mcp-law-server/       <-- 法令解析 MCP サーバー (Node.js アプリケーション)
@@ -91,18 +92,18 @@ https://github.com/sinzy0925/mastra-crs-mcp から以下のいずれかの方法
 
 **このステップは、本アプリケーションのブラウザ操作機能（`.exe` ファイル群）を利用するために必須です。Playwright による実際の Web ブラウザ操作は、認証済みの有効な API キーがある場合にのみ実行できます。**
 
-展開したフォルダのルートディレクトリにある **`01_run_get_api_key.exe`** をダブルクリックして実行してください。このツールは、安全な方法で認証を行い、実行に必要な API キーを OS のセキュアストレージに保存します。
+展開したフォルダのルートディレクトリにある **`01_run_get_crs_api_key.exe`** をダブルクリックして実行してください。このツールは、安全な方法で認証を行い、実行に必要な API キーを OS のセキュアストレージに保存します。
 
-以下に、`01_run_get_api_key.exe` の詳細な手順を示します。
+以下に、`01_run_get_crs_api_key.exe` の詳細な手順を示します。
 
 1.  エクスプローラーで、展開した `mastra-crs-mcp` フォルダを開きます。
-2.  ルートディレクトリにある **`01_run_get_api_key.exe` をダブルクリックして起動します。**
+2.  ルートディレクトリにある **`01_run_get_crs_api_key.exe` をダブルクリックして起動します。**
 3.  黒いコンソールウィンドウが表示され、認証フローの開始がログ表示されます。
 4.  **数秒後、Google の認証ページがブラウザで自動的に起動します。** もしブラウザが開かない場合は、コンソールウィンドウに表示される URL をコピーし、手動でブラウザで開いてください。
 5.  コンソールウィンドウに、「ワンタイムコードをコピー済です」というメッセージと共に **ワンタイムコード (例: XXXXXXXX)** が表示されます。このコードはクリップボードに自動的にコピーされています。
 6.  ブラウザで開かれた Google の認証ページで、**ワンタイムコード を入力**し、「次へ」または「続行」をクリックします。
 7.  本アプリケーションが Google アカウント情報にアクセスするための権限要求画面が表示されます。内容を確認し、**許可**してください。
-8.  ブラウザでの許可が完了したら、**`01_run_get_api_key.exe` が起動しているコンソールウィンドウ**に戻ります。コンソールで「Authorization successful!」など、処理が進んでいることを確認してください。
+8.  ブラウザでの許可が完了したら、**`01_run_get_crs_api_key.exe` が起動しているコンソールウィンドウ**に戻ります。コンソールで「Authorization successful!」など、処理が進んでいることを確認してください。
 9.  Google からの応答後、Firebase Auth と連携し、API キーを取得する処理が自動的に続行されます。
 10. 最終的な API キー の取得と OS セキュアストレージへの保存が成功したかどうかのメッセージボックスが表示されます。
     *   **「Setup Complete」** というタイトルのメッセージボックスが表示されれば成功です。これで本アプリケーションのブラウザ操作機能を使用する準備ができました。
@@ -111,13 +112,31 @@ https://github.com/sinzy0925/mastra-crs-mcp から以下のいずれかの方法
 
 **認証の必要性について:**
 
-本アプリケーションに含まれる `.exe` ファイルは、その機能の性質上、無制限な利用を防ぐために認証メカニズムを導入しています。`01_run_get_api_key.exe` はこの認証プロセスを代行し、ユーザーの Google アカウントと紐づいた API キーを生成または取得します。この API キーは、各 `.exe` ファイルの実行時に自動的に読み込まれ、利用権限の検証に使用されます。
+本アプリケーションに含まれる `.exe` ファイルは、その機能の性質上、無制限な利用を防ぐために認証メカニズムを導入しています。`01_run_get_crs_api_key.exe` はこの認証プロセスを代行し、ユーザーの Google アカウントと紐づいた API キーを生成または取得します。この API キーは、各 `.exe` ファイルの実行時に自動的に読み込まれ、利用権限の検証に使用されます。
 
 もし API キーが設定されていない場合、または期限切れなどの理由で無効になっている場合、`.exe` ファイル（`chrome-auto-scraper.exe` や `chrome-law-analyzer.exe`）の実行は拒否され、エラーメッセージが表示されます。
 
 API キーの利用状況によっては、無料枠の上限に達した場合などに利用が制限される可能性があります。ご了承ください。（月間無料利用枠：100回を想定）
 
-### **STEP 4: MCP サーバーと Mastra Agent の起動**
+
+STEP 4: Gemini APIキーの設定
+このステップは、Mastra Agent を通じて LLM (Google Gemini) と対話するために必須です。
+展開したフォルダのルートディレクトリにある 02_run_get_gemini_api_key.bat をダブルクリックして実行してください。このバッチファイルが、Google AI Studio の API キー取得ページを開き、ユーザーに入力してもらった API キーを mastra/.env ファイルに保存します。
+以下に、02_run_get_gemini_api_key.bat の詳細な手順を示します。
+エクスプローラーで、展開した mastra-crs-mcp フォルダを開きます。
+ルートディレクトリにある 02_run_get_gemini_api_key.bat をダブルクリックして起動します。
+黒いコンソールウィンドウが表示され、Gemini API キー設定プロセスに関するメッセージが表示されます。
+Google AI Studio の API キー取得ページがブラウザで自動的に起動します。 もしブラウザが開かない場合は、コンソールに表示される URL (https://aistudio.google.com/apikey) をコピーし、手動でブラウザで開いてください。
+ブラウザで、新しい API キーを作成するか、既存のキーを確認します。
+取得した API キーをコピーします。
+02_run_get_gemini_api_key.bat が起動しているコンソールウィンドウに戻ります。 プロンプトが表示されているので、コピーした API キーを貼り付け、Enter キーを押してください。 (入力内容は画面に表示されません)
+入力された API キーが mastra フォルダ内の .env ファイルに GOOGLE_GENERATIVE_AI_API_KEY=<入力したキー> という形式で保存されます。
+API キーが保存された旨のメッセージが表示されたら、設定完了です。コンソールウィンドウを閉じてください。
+Gemini APIキー認証の必要性について:
+Mastra Agent が Google Gemini モデルを利用して応答を生成するためには、有効な Gemini API キーが必要です。このキーは .env ファイルに保存され、Mastra Agent が起動時に読み込みます。このキーがない場合、Agent は LLM モデルにアクセスできず、応答できません。
+
+
+### **STEP 5: MCP サーバーと Mastra Agent の起動**
 
 API キー設定が完了し、ブラウザ操作機能を利用する準備ができたら、MCP サーバー群と Mastra Agent を起動します。
 
@@ -129,7 +148,8 @@ API キー設定が完了し、ブラウザ操作機能を利用する準備が�
 
 4.  バッチファイルの実行が完了すると、Mastra Agent (またはその Web UI) との対話に進む準備が整います。
 
-### **STEP 5: Mastra Agent との対話**
+
+### **STEP 6: Mastra Agent との対話**
 
 MCPサーバーと Mastra Agent が起動したら、Mastra Agent を通じて LLM に指示を出し、ブラウザ操作ツールを利用できます。
 
@@ -139,12 +159,12 @@ Mastra Agent は Web UI を提供します。`02_start_servers_and_agent.bat` �
 2.  Mastra Agent の Web UI が表示されます。ここで、LLM に指示を入力できます。
 3.  **LLM に話しかけるように、日本語で指示を入力してください。** Agent はあなたの指示を理解し、必要に応じて MCP サーバー上のツール（内部的に `.exe` ファイルを実行）を呼び出して応答します。
 
-    3-1 *   エージェントWeb Scraper Agentを選択した場合は以下のように指示します。    
-        *   指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
-        *   例：「google で 日本の首相 を検索して」 (内部的に `setdir='google--search_query'` を使用)
-        *   例：「pmda で パキシル の情報を詳しく教えて」 (内部的に `setdir='pmda--search_query'` を使用)
-        *   例：「メルカリでスイッチについて検索して」 (内部的に `setdir='merucari--search_query'` を使用)
-        *   `setdir` の名前は、`crs-mcp-scraper-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
+    * **3-1** エージェントWeb Scraper Agentを選択した場合は以下のように指示します。
+        -  指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。
+        -   例：「google で 日本の首相 を検索して」 (内部的に `setdir='google--search_query'` を使用)
+        -   例：「pmda で パキシル の情報を詳しく教えて」 (内部的に `setdir='pmda--search_query'` を使用)
+        -   例：「メルカリでスイッチについて検索して」 (内部的に `setdir='merucari--search_query'` を使用)
+        -   `setdir` の名前は、`crs-mcp-scraper-server\bin\` のサブディレクトリ名に対応します。これらのディレクトリ内に格納されている `playwright_steps_logic.py` が具体的な操作手順を、`playwright_steps_param.txt` がパラメータを定義しています。
 
     3-2 *   エージェントLaw Analyzer Agentを選択した場合は以下のように指示します。    
         *   指示を出す際は、どの「設定セット (`setdir`)」を使いたいかを明確に伝える必要があります。Agent の Instructions には、LLM が認識すべき `setdir` 名の例が含まれています。

@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 import { scraperAgent, cleanupScraperAgent } from './agents/scraperAgent.js';
 // 新しい lawAnalyzerAgent とその cleanup 関数をインポート
 import { lawAnalyzerAgent, cleanupLawAgent } from './agents/lawAnalyzerAgent.js';
-
+// --- LibSQLStore をインポート ★追加★ ---
+import { LibSQLStore } from '@mastra/libsql';
 dotenv.config();
 
 // 各エージェントはそれぞれのファイル内で初期化（ツール取得含む）されているため、
@@ -19,7 +20,14 @@ export const mastra = new Mastra({
         scraperAgent,
         lawAnalyzerAgent
     },
-    // memory: 必要に応じて他の設定もここに追加
+    // デフォルトストレージ非推奨の警告を解消するために、LibSQLStoreを明示的に設定
+    // 警告メッセージで案内されたパス 'file:../mastra.db' を使用します。
+    // これはmastraフォルダの親ディレクトリ（つまりアプリケーションのルート）に
+    // mastra.db というファイルを作成することを意味します。
+    storage: new LibSQLStore({
+        url: 'file:../mastra.db',
+    }),
+    // memory: 必要に応じて他の設定もここに追加できます
 });
 
 console.log("Mastra instance created and exported in src/mastra/index.ts.");
