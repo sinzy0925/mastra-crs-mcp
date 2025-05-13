@@ -145,11 +145,11 @@ Mastra Agent が Google Gemini モデルを利用して応答を生成するた�
 
 API キー設定が完了し、ブラウザ操作機能を利用する準備ができたら、MCP サーバー群と Mastra Agent を起動します。
 
-**STEP 4: Gemini APIキーの設定**で、**`02_run_get_gemini_api_key.bat`**を実行した場合は、続けて**`03_start_servers_and_agent.bat`**が実行されるので、このステップの作業は不要です。
+**STEP 4: Gemini APIキーの設定**で、 **`02_run_get_gemini_api_key.bat`** を実行した場合は、続けて **`03_start_servers_and_agent.bat`** が実行されるので、このステップの作業は不要です。
 
-一度でも、**STEP 3: 【最重要かつ最初】APIキーの設定**　**STEP 4: Gemini APIキーの設定**　を実行したら、
+- 一度でも、**STEP 3: 【最重要かつ最初】APIキーの設定**　**STEP 4: Gemini APIキーの設定**　を実行したら、
 その次からは、**STEP 5: MCP サーバーと Mastra Agent の起動**のみを実行して、サーバーを起動します。
-**サーバーを停止する際は必ず、MCP サーバーと Mastra Agent のコンソールウィンドウ（黒い窓３個）を閉じてください。**
+- **サーバーを停止する際は必ず、MCP サーバーと Mastra Agent のコンソールウィンドウ（黒い窓３個）を閉じてください。**
 
 展開したフォルダのルートディレクトリにある **`03_start_servers_and_agent.bat`** をダブルクリックして実行してください。このバッチファイルが、必要な Node.js プロジェクトのセットアップ（依存インストール、ビルド）および各 MCP サーバーと Mastra Agent の起動を自動化します。
 
