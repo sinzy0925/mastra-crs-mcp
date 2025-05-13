@@ -15,7 +15,7 @@
     "scraper",
     "mastra"
   ],
-  "author": "Taro.AI",
+  "author": "Taro.AI <sinzy@veryglad.net>",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^5.0.1",

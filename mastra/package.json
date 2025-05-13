@@ -14,7 +14,7 @@
     "mcp",
     "agent"
   ],
-  "author": "Taro.AI",
+  "author": "Taro.AI <sinzy@veryglad.net>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.15.3",
