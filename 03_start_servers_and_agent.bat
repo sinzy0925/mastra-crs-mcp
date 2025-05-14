@@ -1,105 +1,92 @@
 @echo off
 
-
-REM ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½gï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½ï¿½Â‹ï¿½ï¿½Ïï¿½ï¿½ÉÝ’ï¿½
-REM %~dp0 ï¿½Íƒoï¿½bï¿½`ï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½ï¿½Ìƒpï¿½Xï¿½ð––”ï¿½ï¿½ï¿½\ï¿½tï¿½ï¿½ï¿½ÅŽæ“¾ï¿½ï¿½ï¿½Ü‚ï¿½
+REM ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ðŠÂ‹«•Ï”‚ÉÝ’è
+REM %~dp0 ‚Íƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ª’u‚©‚ê‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ð––”ö‚É\•t‚«‚ÅŽæ“¾‚µ‚Ü‚·
 SET "APP_ROOT=%~dp0"
 
 echo ======================================================
-echo  Mastra-CRS-MCP: MCPï¿½Tï¿½[ï¿½oï¿½[ & Agent ï¿½Nï¿½ï¿½ï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½g
+echo  Mastra-CRS-MCP: MCPƒT[ƒo[ & Agent ‹N“®ƒXƒNƒŠƒvƒg
 echo ======================================================
 echo.
-echo ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½gï¿½ï¿½: %APP_ROOT%
+echo ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ: %APP_ROOT%
 echo.
 
-REM ï¿½eNode.jsï¿½vï¿½ï¿½ï¿½Wï¿½Fï¿½Nï¿½gï¿½ÌˆË‘ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½Æƒrï¿½ï¿½ï¿½hï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ä‹Nï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
-REM ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ÅŽï¿½ï¿½sï¿½ï¿½ï¿½ACtrl+Cï¿½ÅIï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½æ‚¤ï¿½ï¿½ /k ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gï¿½pï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
-REM ï¿½Â‹ï¿½ï¿½Ïï¿½ APP_ROOT ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+REM ŠeNode.jsƒvƒƒWƒFƒNƒg‚ÌˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚Æƒrƒ‹ƒhA‚»‚µ‚Ä‹N“®‚ðs‚¢‚Ü‚·B
+REM V‚µ‚¢ƒEƒBƒ“ƒhƒE‚ÅŽÀs‚µACtrl+C‚ÅI—¹‚µ‚È‚¢‚æ‚¤‚É /k ƒIƒvƒVƒ‡ƒ“‚ðŽg—p‚µ‚Ü‚·B
+REM ŠÂ‹«•Ï” APP_ROOT ‚ðˆø‚«Œp‚¬‚Ü‚·B
 
-REM --- crs-mcp-law-server (ï¿½@ï¿½ß‰ï¿½ï¿½ MCP ï¿½Tï¿½[ï¿½oï¿½[) ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½vï¿½Æ‹Nï¿½ï¿½ ---
-echo --- 1. ï¿½@ï¿½ß‰ï¿½ï¿½ MCP ï¿½Tï¿½[ï¿½oï¿½[ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½v (crs-mcp-law-server) ---
+REM --- crs-mcp-law-server (–@—ß‰ðÍ MCP ƒT[ƒo[) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 1. –@—ß‰ðÍ MCP ƒT[ƒo[‚ÌƒZƒbƒgƒAƒbƒv (crs-mcp-law-server) ---
 cd crs-mcp-law-server
 dir
 if exist node_modules\ (
-    echo node_modules ï¿½ï¿½ï¿½ï¿½ï¿½Ý‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½Ë‘ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptï¿½ï¿½ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
-npm run build
-if errorlevel 1 goto npm_error
-echo ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
 
-echo ï¿½@ï¿½ß‰ï¿½ï¿½ MCP ï¿½Tï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ (ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E)...
+echo –@—ß‰ðÍ MCP ƒT[ƒo[‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Law Server" cmd /k npm run dev
 start "Law Server" cmd /k npm run dev
 
 echo.
 
-REM --- crs-mcp-scraper-server (ï¿½Xï¿½Nï¿½ï¿½ï¿½Cï¿½pï¿½[ MCP ï¿½Tï¿½[ï¿½oï¿½[) ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½vï¿½Æ‹Nï¿½ï¿½ ---
-echo --- 2. ï¿½Xï¿½Nï¿½ï¿½ï¿½Cï¿½pï¿½[ MCP ï¿½Tï¿½[ï¿½oï¿½[ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½v (crs-mcp-scraper-server) ---
+REM --- crs-mcp-scraper-server (ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 2. ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[‚ÌƒZƒbƒgƒAƒbƒv (crs-mcp-scraper-server) ---
 cd ..
 cd crs-mcp-scraper-server
 if exist node_modules\ (
-    echo node_modules ï¿½ï¿½ï¿½ï¿½ï¿½Ý‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½Ë‘ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptï¿½ï¿½ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
-npm run build
-if errorlevel 1 goto npm_error
-echo ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
 
-echo ï¿½Xï¿½Nï¿½ï¿½ï¿½Cï¿½pï¿½[ MCP ï¿½Tï¿½[ï¿½oï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ (ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E)...
+echo ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Scraper Server" cmd /k npm run dev
 start "Scraper Server" cmd /k npm run dev
 echo.
 
-REM --- mastra (Mastra Agent ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½) ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½vï¿½Æ‹Nï¿½ï¿½ ---
-echo --- 3. Mastra Agent ï¿½Aï¿½vï¿½ï¿½ï¿½Pï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÌƒZï¿½bï¿½gï¿½Aï¿½bï¿½v (mastra) ---
+REM --- mastra (Mastra Agent ƒAƒvƒŠƒP[ƒVƒ‡ƒ“) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 3. Mastra Agent ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒZƒbƒgƒAƒbƒv (mastra) ---
 cd ..
 cd mastra
 if exist node_modules\ (
-    echo node_modules ï¿½ï¿½ï¿½ï¿½ï¿½Ý‚ï¿½ï¿½Ü‚ï¿½ï¿½Bï¿½Ë‘ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ï¿½Ë‘ï¿½ï¿½pï¿½bï¿½Pï¿½[ï¿½Wï¿½ÌƒCï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptï¿½ï¿½ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½...
-npm run build
-if errorlevel 1 goto npm_error
-echo ï¿½rï¿½ï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
 
-echo Mastra Agent ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ (ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½E)...
+echo Mastra Agent ‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Mastra Agent" cmd /k npm run dev"
 start "Mastra Agent" cmd /k npm run dev
 
-timeout /t 10 /nobreak > NUL
-echo Webï¿½uï¿½ï¿½ï¿½Eï¿½Uï¿½ï¿½ http://localhost:4111/ ï¿½ÉƒAï¿½Nï¿½Zï¿½Xï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+timeout /t 15 /nobreak > NUL
+echo Webƒuƒ‰ƒEƒU‚Å http://localhost:4111/ ‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢B
 start chrome.exe "http://localhost:4111/"
 echo.
 
 echo ======================================================
-echo  "ï¿½ï¿½ï¿½×‚Ä‚ÌƒTï¿½[ï¿½oï¿½[ï¿½ï¿½ Agent ï¿½Ì‹Nï¿½ï¿½ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ð”­sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B"
-echo  "ï¿½eï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B"
-echo  "ï¿½ï¿½ï¿½ÌƒEï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ÍŽï¿½ï¿½ï¿½ï¿½Iï¿½É•Â‚ï¿½ï¿½Ü‚ï¿½ï¿½B"
+echo  "‚·‚×‚Ä‚ÌƒT[ƒo[‚Æ Agent ‚Ì‹N“®ƒRƒ}ƒ“ƒh‚ð”­s‚µ‚Ü‚µ‚½B"
+echo  "ŠeƒEƒBƒ“ƒhƒE‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B"
+echo  "‚±‚ÌƒEƒBƒ“ƒhƒE‚ÍŽ©“®“I‚É•Â‚¶‚Ü‚·B"
 echo ======================================================
 goto end
 
 :npm_error
 echo ======================================================
-echo  ï¿½Gï¿½ï¿½ï¿½[: npm ï¿½Rï¿½}ï¿½ï¿½ï¿½hï¿½ÌŽï¿½ï¿½sï¿½ÉŽï¿½ï¿½sï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½B
-echo  ï¿½Cï¿½ï¿½ï¿½^ï¿½[ï¿½lï¿½bï¿½gï¿½Ú‘ï¿½ï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½ANode.jsï¿½ï¿½npmï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-echo  ï¿½Cï¿½ï¿½ï¿½Xï¿½gï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½mï¿½Fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
-echo  ï¿½Gï¿½ï¿½ï¿½[ï¿½Ú×‚Íï¿½Lï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½mï¿½Fï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
+echo  ƒGƒ‰[: npm ƒRƒ}ƒ“ƒh‚ÌŽÀs‚ÉŽ¸”s‚µ‚Ü‚µ‚½B
+echo  ƒCƒ“ƒ^[ƒlƒbƒgÚ‘±‚ðŠm”F‚µANode.js‚Ænpm‚ª³‚µ‚­
+echo  ƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚é‚©Šm”F‚µ‚Ä‚­‚¾‚³‚¢B
+echo  ƒGƒ‰[Ú×‚Íã‹L‚ÌƒƒbƒZ[ƒW‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
 echo ======================================================
 pause
 
