@@ -50,6 +50,11 @@ if exist node_modules\ (
     echo 依存パッケージのインストールが完了しました。
 )
 
+echo TypeScriptをビルドしています...
+npm run build
+if errorlevel 1 goto npm_error
+echo ビルドが完了しました。
+
 echo 法令解析 MCP サーバーを起動します (新しいウィンドウ)...
 REM start "Law Server" cmd /k npm run dev
 start "Law Server" cmd /k npm run dev
@@ -69,6 +74,11 @@ if exist node_modules\ (
     echo 依存パッケージのインストールが完了しました。
 )
 
+echo TypeScriptをビルドしています...
+npm run build
+if errorlevel 1 goto npm_error
+echo ビルドが完了しました。
+
 echo スクレイパー MCP サーバーを起動します (新しいウィンドウ)...
 REM start "Scraper Server" cmd /k npm run dev
 start "Scraper Server" cmd /k npm run dev
@@ -86,6 +96,11 @@ if exist node_modules\ (
     if errorlevel 1 goto npm_error
     echo 依存パッケージのインストールが完了しました。
 )
+
+echo TypeScriptをビルドしています...
+npm run build
+if errorlevel 1 goto npm_error
+echo ビルドが完了しました。
 
 echo Mastra Agent を起動します (新しいウィンドウ)...
 REM start "Mastra Agent" cmd /k npm run dev"
