@@ -11,6 +11,28 @@ echo.
 echo アプリケーションルートディレクトリ: %APP_ROOT%
 echo.
 
+
+REM --- 多重起動の検知 (PowerShellスクリプトを使用) ---
+echo 既存の関連プロセスをチェックしています...
+
+REM PowerShellスクリプトにポート番号を渡して実行
+REM -ExecutionPolicy Bypass は、スクリプト実行ポリシーを一時的に回避（注意が必要）
+REM & は Invoke-Expression のエイリアスとして、スクリプトを実行
+PowerShell -ExecutionPolicy Bypass -File "%APP_ROOT%check_port.ps1" 3001 3002 4111
+
+REM PowerShellスクリプトの終了コードを取得
+REM check_port.ps1 は起動していれば 1、そうでなければ 0 を返す設計
+if errorlevel 1 (
+    REM PowerShellスクリプトがエラー終了コードを返した場合（起動中と判断）
+    REM check_port.ps1内でメッセージは表示済み
+    pause
+    EXIT /B 1 REM バッチファイルもエラー終了
+)
+
+echo.
+REM --- 多重起動の検知 (ここまで) ---
+
+
 REM 各Node.jsプロジェクトの依存インストールとビルド、そして起動を行います。
 REM 新しいウィンドウで実行し、Ctrl+Cで終了しないように /k オプションを使用します。
 REM 環境変数 APP_ROOT を引き継ぎます。
