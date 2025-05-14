@@ -1,48 +1,47 @@
-ï»¿@echo off
-chcp 65001 > nul
+@echo off
 
 
 echo ======================================================
-echo  Mastra-CRS-MCP: Gemini APIã‚­ãƒ¼è¨­å®š
+echo  Mastra-CRS-MCP: Gemini APIƒL[İ’è
 echo ======================================================
 echo.
-echo Gemini (Google Generative AI) ã® API ã‚­ãƒ¼ã‚’è¨­å®šã—ã¾ã™ã€‚
+echo Gemini (Google Generative AI) ‚Ì API ƒL[‚ğİ’è‚µ‚Ü‚·B
 echo.
-echo "ä»¥ä¸‹ã®ãƒšãƒ¼ã‚¸ã‚’Webãƒ–ãƒ©ã‚¦ã‚¶ã§é–‹ã„ã¦ã€API ã‚­ãƒ¼ã‚’å–å¾—ã—ã¦ãã ã•ã„ã€‚"
-echo "API ã‚­ãƒ¼ ã®å–å¾—ã«ã¯ Google ã‚¢ã‚«ã‚¦ãƒ³ãƒˆãŒå¿…è¦ã§ã™ã€‚"
+echo "ˆÈ‰º‚Ìƒy[ƒW‚ğWebƒuƒ‰ƒEƒU‚ÅŠJ‚¢‚ÄAAPI ƒL[‚ğæ“¾‚µ‚Ä‚­‚¾‚³‚¢B"
+echo "API ƒL[ ‚Ìæ“¾‚É‚Í Google ƒAƒJƒEƒ“ƒg‚ª•K—v‚Å‚·B"
 echo.
 echo https://aistudio.google.com/apikey
 echo.
-echo ä¸Šè¨˜URLã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§é–‹ãã¾ã™...
+echo ã‹LURL‚ğƒuƒ‰ƒEƒU‚ÅŠJ‚«‚Ü‚·...
 echo.
 
-REM Gemini APIã‚­ãƒ¼å–å¾—ãƒšãƒ¼ã‚¸ã‚’ãƒ–ãƒ©ã‚¦ã‚¶ã§é–‹ã
+REM Gemini APIƒL[æ“¾ƒy[ƒW‚ğƒuƒ‰ƒEƒU‚ÅŠJ‚­
 start "" "https://aistudio.google.com/apikey"
-echo ãƒ–ãƒ©ã‚¦ã‚¶ãŒé–‹ã‹ãªã„å ´åˆã¯ã€ä¸Šè¨˜ã®URLã‚’ã‚³ãƒ”ãƒ¼ã—ã¦æ‰‹å‹•ã§é–‹ã„ã¦ãã ã•ã„ã€‚
+echo ƒuƒ‰ƒEƒU‚ªŠJ‚©‚È‚¢ê‡‚ÍAã‹L‚ÌURL‚ğƒRƒs[‚µ‚Äè“®‚ÅŠJ‚¢‚Ä‚­‚¾‚³‚¢B
 echo.
 
 echo ------------------------------------------------------
-echo "ãƒ–ãƒ©ã‚¦ã‚¶ã§ API ã‚­ãƒ¼ã‚’å–å¾—ã—ãŸã‚‰ã€ä»¥ä¸‹ã«è²¼ã‚Šä»˜ã‘ã¦ Enter ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚"
-echo "(ã‚­ãƒ¼ã¯ç”»é¢ã«è¡¨ç¤ºã•ã‚Œã¾ã›ã‚“)"
+echo "ƒuƒ‰ƒEƒU‚Å API ƒL[‚ğæ“¾‚µ‚½‚çAˆÈ‰º‚É“\‚è•t‚¯‚Ä Enter ‚ğ‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B"
+echo "(ƒL[‚Í‰æ–Ê‚É•\¦‚³‚ê‚Ü‚¹‚ñ)"
 echo ------------------------------------------------------
 
-set /p GEMINI_API_KEY=APIã‚­ãƒ¼ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„: 
+set /p GEMINI_API_KEY=APIƒL[‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢: 
 
 echo.
-echo å…¥åŠ›ã•ã‚ŒãŸã‚­ãƒ¼: %GEMINI_API_KEY:~0,5%...
+echo “ü—Í‚³‚ê‚½ƒL[: %GEMINI_API_KEY:~0,5%...
 
-REM APIã‚­ãƒ¼ã‚’ .env ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãè¾¼ã‚€
-REM .env ãƒ•ã‚¡ã‚¤ãƒ«ãŒãªã‘ã‚Œã°æ–°è¦ä½œæˆã€ã‚ã‚Œã°è¿½è¨˜ã¾ãŸã¯æ›´æ–°
+REM APIƒL[‚ğ .env ƒtƒ@ƒCƒ‹‚É‘‚«‚Ş
+REM .env ƒtƒ@ƒCƒ‹‚ª‚È‚¯‚ê‚ÎV‹Kì¬A‚ ‚ê‚Î’Ç‹L‚Ü‚½‚ÍXV
 
 echo GOOGLE_GENERATIVE_AI_API_KEY=%GEMINI_API_KEY% > mastra\.env
 
 echo.
 echo ======================================================
-echo  APIã‚­ãƒ¼ã‚’ mastra\.env ã«ä¿å­˜ã—ã¾ã—ãŸã€‚
+echo  APIƒL[‚ğ mastra\.env ‚É•Û‘¶‚µ‚Ü‚µ‚½B
 echo ======================================================
 echo.
-echo "ã“ã‚Œã§èªè¨¼ã¨APIã‚­ãƒ¼ã®è¨­å®šã¯å®Œäº†ã§ã™ã€‚"
-echo "æ¬¡ã«ã€03_start_servers_and_agent.batã‚’å®Ÿè¡Œã—ã¦ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã—ã¦ãã ã•ã„ã€‚"
+echo "‚±‚ê‚Å”FØ‚ÆAPIƒL[‚Ìİ’è‚ÍŠ®—¹‚Å‚·B"
+echo "Ÿ‚ÉA03_start_servers_and_agent.bat‚ğÀs‚µ‚ÄƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‹N“®‚µ‚Ä‚­‚¾‚³‚¢B"
 echo.
 start 03_start_servers_and_agent.bat
 EXIT /B 0

@@ -1,105 +1,104 @@
-ï»¿@echo off
-chcp 65001 > nul
+@echo off
 
-REM ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ç’°å¢ƒå¤‰æ•°ã«è¨­å®š
-REM %~dp0 ã¯ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ãŒç½®ã‹ã‚Œã¦ã„ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ‘ã‚¹ã‚’æœ«å°¾ã«\ä»˜ãã§å–å¾—ã—ã¾ã™
+REM ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ðŠÂ‹«•Ï”‚ÉÝ’è
+REM %~dp0 ‚Íƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ª’u‚©‚ê‚Ä‚¢‚éƒfƒBƒŒƒNƒgƒŠ‚ÌƒpƒX‚ð––”ö‚É\•t‚«‚ÅŽæ“¾‚µ‚Ü‚·
 SET "APP_ROOT=%~dp0"
 
 echo ======================================================
-echo  Mastra-CRS-MCP: MCPã‚µãƒ¼ãƒãƒ¼ & Agent èµ·å‹•ã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+echo  Mastra-CRS-MCP: MCPƒT[ƒo[ & Agent ‹N“®ƒXƒNƒŠƒvƒg
 echo ======================================================
 echo.
-echo ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª: %APP_ROOT%
+echo ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ: %APP_ROOT%
 echo.
 
-REM å„Node.jsãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã®ä¾å­˜ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã¨ãƒ“ãƒ«ãƒ‰ã€ãã—ã¦èµ·å‹•ã‚’è¡Œã„ã¾ã™ã€‚
-REM æ–°ã—ã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã§å®Ÿè¡Œã—ã€Ctrl+Cã§çµ‚äº†ã—ãªã„ã‚ˆã†ã« /k ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ä½¿ç”¨ã—ã¾ã™ã€‚
-REM ç’°å¢ƒå¤‰æ•° APP_ROOT ã‚’å¼•ãç¶™ãŽã¾ã™ã€‚
+REM ŠeNode.jsƒvƒƒWƒFƒNƒg‚ÌˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚Æƒrƒ‹ƒhA‚»‚µ‚Ä‹N“®‚ðs‚¢‚Ü‚·B
+REM V‚µ‚¢ƒEƒBƒ“ƒhƒE‚ÅŽÀs‚µACtrl+C‚ÅI—¹‚µ‚È‚¢‚æ‚¤‚É /k ƒIƒvƒVƒ‡ƒ“‚ðŽg—p‚µ‚Ü‚·B
+REM ŠÂ‹«•Ï” APP_ROOT ‚ðˆø‚«Œp‚¬‚Ü‚·B
 
-REM --- crs-mcp-law-server (æ³•ä»¤è§£æž MCP ã‚µãƒ¼ãƒãƒ¼) ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã¨èµ·å‹• ---
-echo --- 1. æ³•ä»¤è§£æž MCP ã‚µãƒ¼ãƒãƒ¼ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ— (crs-mcp-law-server) ---
+REM --- crs-mcp-law-server (–@—ß‰ðÍ MCP ƒT[ƒo[) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 1. –@—ß‰ðÍ MCP ƒT[ƒo[‚ÌƒZƒbƒgƒAƒbƒv (crs-mcp-law-server) ---
 cd crs-mcp-law-server
 dir
 if exist node_modules\ (
-    echo node_modules ãŒå­˜åœ¨ã—ã¾ã™ã€‚ä¾å­˜ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ã¾ã™...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptã‚’ãƒ“ãƒ«ãƒ‰ã—ã¦ã„ã¾ã™...
+echo TypeScript‚ðƒrƒ‹ƒh‚µ‚Ä‚¢‚Ü‚·...
 npm run build
 if errorlevel 1 goto npm_error
-echo ãƒ“ãƒ«ãƒ‰ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+echo ƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 
-echo æ³•ä»¤è§£æž MCP ã‚µãƒ¼ãƒãƒ¼ã‚’èµ·å‹•ã—ã¾ã™ (æ–°ã—ã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦)...
+echo –@—ß‰ðÍ MCP ƒT[ƒo[‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Law Server" cmd /k npm run dev
 start "Law Server" cmd /k npm run dev
 
 echo.
 
-REM --- crs-mcp-scraper-server (ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ‘ãƒ¼ MCP ã‚µãƒ¼ãƒãƒ¼) ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã¨èµ·å‹• ---
-echo --- 2. ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ‘ãƒ¼ MCP ã‚µãƒ¼ãƒãƒ¼ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ— (crs-mcp-scraper-server) ---
+REM --- crs-mcp-scraper-server (ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 2. ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[‚ÌƒZƒbƒgƒAƒbƒv (crs-mcp-scraper-server) ---
 cd ..
 cd crs-mcp-scraper-server
 if exist node_modules\ (
-    echo node_modules ãŒå­˜åœ¨ã—ã¾ã™ã€‚ä¾å­˜ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ã¾ã™...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptã‚’ãƒ“ãƒ«ãƒ‰ã—ã¦ã„ã¾ã™...
+echo TypeScript‚ðƒrƒ‹ƒh‚µ‚Ä‚¢‚Ü‚·...
 npm run build
 if errorlevel 1 goto npm_error
-echo ãƒ“ãƒ«ãƒ‰ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+echo ƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 
-echo ã‚¹ã‚¯ãƒ¬ã‚¤ãƒ‘ãƒ¼ MCP ã‚µãƒ¼ãƒãƒ¼ã‚’èµ·å‹•ã—ã¾ã™ (æ–°ã—ã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦)...
+echo ƒXƒNƒŒƒCƒp[ MCP ƒT[ƒo[‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Scraper Server" cmd /k npm run dev
 start "Scraper Server" cmd /k npm run dev
 echo.
 
-REM --- mastra (Mastra Agent ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³) ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã¨èµ·å‹• ---
-echo --- 3. Mastra Agent ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ— (mastra) ---
+REM --- mastra (Mastra Agent ƒAƒvƒŠƒP[ƒVƒ‡ƒ“) ‚ÌƒZƒbƒgƒAƒbƒv‚Æ‹N“® ---
+echo --- 3. Mastra Agent ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ÌƒZƒbƒgƒAƒbƒv (mastra) ---
 cd ..
 cd mastra
 if exist node_modules\ (
-    echo node_modules ãŒå­˜åœ¨ã—ã¾ã™ã€‚ä¾å­˜ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
+    echo node_modules ‚ª‘¶Ý‚µ‚Ü‚·BˆË‘¶ƒCƒ“ƒXƒg[ƒ‹‚ðƒXƒLƒbƒv‚µ‚Ü‚·B
 ) else (
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ã¦ã„ã¾ã™...
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ðƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚Ü‚·...
     npm install
     if errorlevel 1 goto npm_error
-    echo ä¾å­˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+    echo ˆË‘¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒXƒg[ƒ‹‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 )
-echo TypeScriptã‚’ãƒ“ãƒ«ãƒ‰ã—ã¦ã„ã¾ã™...
+echo TypeScript‚ðƒrƒ‹ƒh‚µ‚Ä‚¢‚Ü‚·...
 npm run build
 if errorlevel 1 goto npm_error
-echo ãƒ“ãƒ«ãƒ‰ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
+echo ƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½B
 
-echo Mastra Agent ã‚’èµ·å‹•ã—ã¾ã™ (æ–°ã—ã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦)...
+echo Mastra Agent ‚ð‹N“®‚µ‚Ü‚· (V‚µ‚¢ƒEƒBƒ“ƒhƒE)...
 REM start "Mastra Agent" cmd /k npm run dev"
 start "Mastra Agent" cmd /k npm run dev
 
 timeout /t 10 /nobreak > NUL
-echo Webãƒ–ãƒ©ã‚¦ã‚¶ã§ http://localhost:4111/ ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ãã ã•ã„ã€‚
+echo Webƒuƒ‰ƒEƒU‚Å http://localhost:4111/ ‚ÉƒAƒNƒZƒX‚µ‚Ä‚­‚¾‚³‚¢B
 start chrome.exe "http://localhost:4111/"
 echo.
 
 echo ======================================================
-echo  "ã™ã¹ã¦ã®ã‚µãƒ¼ãƒãƒ¼ã¨ Agent ã®èµ·å‹•ã‚³ãƒžãƒ³ãƒ‰ã‚’ç™ºè¡Œã—ã¾ã—ãŸã€‚"
-echo  "å„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚"
-echo  "ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯è‡ªå‹•çš„ã«é–‰ã˜ã¾ã™ã€‚"
+echo  "‚·‚×‚Ä‚ÌƒT[ƒo[‚Æ Agent ‚Ì‹N“®ƒRƒ}ƒ“ƒh‚ð”­s‚µ‚Ü‚µ‚½B"
+echo  "ŠeƒEƒBƒ“ƒhƒE‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B"
+echo  "‚±‚ÌƒEƒBƒ“ƒhƒE‚ÍŽ©“®“I‚É•Â‚¶‚Ü‚·B"
 echo ======================================================
 goto end
 
 :npm_error
 echo ======================================================
-echo  ã‚¨ãƒ©ãƒ¼: npm ã‚³ãƒžãƒ³ãƒ‰ã®å®Ÿè¡Œã«å¤±æ•—ã—ã¾ã—ãŸã€‚
-echo  ã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒƒãƒˆæŽ¥ç¶šã‚’ç¢ºèªã—ã€Node.jsã¨npmãŒæ­£ã—ã
-echo  ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèªã—ã¦ãã ã•ã„ã€‚
-echo  ã‚¨ãƒ©ãƒ¼è©³ç´°ã¯ä¸Šè¨˜ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ç¢ºèªã—ã¦ãã ã•ã„ã€‚
+echo  ƒGƒ‰[: npm ƒRƒ}ƒ“ƒh‚ÌŽÀs‚ÉŽ¸”s‚µ‚Ü‚µ‚½B
+echo  ƒCƒ“ƒ^[ƒlƒbƒgÚ‘±‚ðŠm”F‚µANode.js‚Ænpm‚ª³‚µ‚­
+echo  ƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ä‚¢‚é‚©Šm”F‚µ‚Ä‚­‚¾‚³‚¢B
+echo  ƒGƒ‰[Ú×‚Íã‹L‚ÌƒƒbƒZ[ƒW‚ðŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
 echo ======================================================
 pause
 
