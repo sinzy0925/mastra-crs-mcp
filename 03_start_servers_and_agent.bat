@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 chcp 65001 > nul
 
 REM アプリケーションのルートディレクトリを環境変数に設定
